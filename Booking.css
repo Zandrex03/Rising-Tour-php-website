@@ -1,0 +1,664 @@
+@import url("https://fonts.googleapis.com/css2?family=Mulish&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Mulish", sans-serif;
+  background: beige;
+}
+
+/* form in javascript start-------------------------------------*/
+.personal-details.active {
+  display: none;
+}
+
+.travel-details {
+  display: none;
+}
+
+.travel-details.active {
+  display: block;
+}
+
+.itinerary-container {
+  display: none;
+}
+
+.itinerary-container.active {
+  display: block;
+}
+
+.result-show {
+  display: none;
+}
+
+.result-show.active {
+  display: block;
+}
+
+.payment-method {
+  display: none;
+}
+
+.payment-method.active {
+  display: block;
+}
+
+.successful {
+  display: none;
+}
+
+.successful.active {
+  display: block;
+}
+
+/* form in javascript end-------------------------------------*/
+
+/*  Progress Bar -------------------------------------*/
+.step-progress-container {
+  max-width: 40%;
+  margin: 0 auto 0 auto;
+}
+
+.step-progress-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.progress-title {
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.progress-title h1 {
+  font-family: "Kaushan Script", cursive;
+  color: gold;
+  text-shadow: 1px 1px 1px black, 1px 2px 1px black, 1px 3px 1px black,
+    1px 4px 1px black, 1px 5px 1px black;
+  text-align: center;
+  font-size: 3rem;
+}
+
+.step {
+  text-align: center;
+}
+
+.step p {
+  margin-bottom: 0.5rem;
+}
+
+.bullet {
+  height: 25px;
+  width: 26px;
+  border-radius: 100%;
+  border: 1px solid orange;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s ease;
+  line-height: 20px;
+  font-size: 1.2rem;
+  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.4);
+}
+
+.bullet.completed {
+  background: orangered;
+  color: white;
+}
+
+.bullet.completed::before {
+  content: "";
+  position: absolute;
+  right: -158px;
+  top: 50%;
+  width: 157px;
+  height: 2px;
+  background: orange;
+}
+
+.bullet4 {
+  margin-left: 8px;
+}
+
+/* Personal Details Design-------------------------------------*/
+
+.personal-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+.personal-details {
+  width: 30rem;
+  height: 36rem;
+  padding: 20px 30px 20px 30px;
+  position: relative;
+  border: coral 2px solid;
+  box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.4);
+}
+
+.personal-details > div {
+  margin-top: 3rem;
+}
+
+.personal-details h1 {
+  text-align: center;
+  color: darkorange;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4), 1px 2px 1px rgba(0, 0, 0, 0.4),
+    1px 3px 1px rgba(0, 0, 0, 0.4);
+}
+
+.input-design {
+  width: 100%;
+  height: 2rem;
+  border: none;
+  border-bottom: 2px gold solid;
+  outline: none;
+  font-size: 1.3rem;
+  background:beige;
+}
+
+.input-design:focus {
+  border-bottom: 2px darkorange solid;
+}
+
+.label-design {
+  position: absolute;
+  left: 6%;
+  transition: 0.5s ease;
+  pointer-events: none;
+  opacity: 0.7;
+  font-size: 1rem;
+}
+
+.input-design:focus + .label-design,
+.input-design:valid + .label-design {
+  transform: translateY(-25px);
+  color: darkorange;
+  opacity: 1;
+}
+
+.next {
+  float: right;
+  padding: 10px 20px;
+  border: 2px solid darkorange;
+  /* box-shadow: 0 5px 10px 0 rgba(0,0,0,0.4); */
+  outline: none;
+  position: relative;
+  z-index: 1;
+  background:tomato;
+  color: white;
+}
+
+.next span {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 0;
+  height: 100%;
+  z-index: -1;
+  background: gold;
+  transition: 0.3s ease;
+}
+
+.next:hover span {
+  width: 100%;
+}
+
+.next:hover {
+ color: black;
+}
+
+/* Travel Details design -------------------------------------------*/
+
+.travel-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.travel-details {
+  width: 25rem;
+  height: 22rem;
+  padding: 20px 30px 20px 30px;
+  position: relative;
+  border: coral 2px solid;
+  box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.4);
+}
+
+.travel-details h1 {
+  text-align: center;
+  color: darkorange;
+  margin-bottom: 1rem;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4), 1px 2px 1px rgba(0, 0, 0, 0.4),
+    1px 3px 1px rgba(0, 0, 0, 0.4);
+}
+
+.travel-input-design {
+  margin-top: 1.5rem;
+  border: 2px solid gold;
+  border-radius: 5px;
+  outline: none;
+  padding-left: 5px;
+  background:beige;
+}
+
+.travel-details label {
+  margin-right: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.travel-input-design:focus {
+  border: 2px solid orange;
+}
+
+.date {
+  height: 2rem;
+}
+
+.number {
+  width: 15%;
+  height: 2rem;
+}
+
+.center-btn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 3rem;
+}
+
+.personal-prev {
+  padding: 8px 25px;
+  position: relative;
+  z-index: 1;
+  border: 2px solid darkorange;
+  outline: none;
+  background:beige;
+}
+
+.personal-prev span {
+  position: absolute;
+  height: 100%;
+  width: 0;
+  right: 0;
+  top: 0;
+  z-index: -1;
+  background: gold;
+  transition: 0.5s;
+}
+
+.personal-prev:hover span {
+  width: 100%;
+}
+
+.availability {
+  padding: 8px 20px;
+  position: relative;
+  z-index: 1;
+  border: 2px solid darkorange;
+  outline: none;
+  background:beige;
+}
+
+.availability span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0;
+  background: gold;
+  z-index: -1;
+  transition: 0.5s ease;
+}
+
+.availability:hover span {
+  width: 100%;
+}
+
+/* Itinerary Details Design -------------------------------------------*/
+
+.itinerary-container {
+  width: 80%;
+  margin: 0 auto 0 auto;
+}
+
+.itinerary-container h2 {
+  text-align: center;
+  color: darkorange;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4), 1px 2px 1px rgba(0, 0, 0, 0.4),
+    1px 3px 1px rgba(0, 0, 0, 0.4);
+  font-size: 2rem;
+}
+
+.itinerary {
+  margin-top: 1rem;
+  border: 2px solid orange;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.4);
+}
+
+.itinerary h3 {
+  margin-bottom: 0.5rem;
+  color: gold;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4), 1px 2px 1px rgba(0, 0, 0, 0.4),
+    1px 3px 1px rgba(0, 0, 0, 0.4);
+  font-size: 1.5rem;
+}
+
+.itinerary h5 {
+  margin-bottom: 0.5rem;
+}
+
+.scene {
+  width: 30%;
+}
+
+.churches {
+  width: 30%;
+}
+
+.leisure-resort {
+  width: 30%;
+}
+
+.scene > div {
+  margin-bottom: 1rem;
+}
+
+.churches > div {
+  margin-bottom: 1rem;
+}
+
+.leisure-resort > div {
+  margin-bottom: 1rem;
+}
+
+.itinerary-btn {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 3rem;
+}
+
+.travel-prev {
+  padding: 8px 25px;
+  position: relative;
+  z-index: 1;
+  border: 2px solid darkorange;
+  outline: none;
+  background:beige;
+}
+
+.travel-prev span {
+  position: absolute;
+  height: 100%;
+  width: 0;
+  right: 0;
+  top: 0;
+  z-index: -1;
+  background: gold;
+  transition: 0.3s;
+}
+
+.travel-prev:hover span {
+  width: 100%;
+}
+
+.done {
+  padding: 8px 25px;
+  position: relative;
+  z-index: 1;
+  border: 2px solid darkorange;
+  outline: none;
+  background:beige;
+}
+
+.done span {
+  position: absolute;
+  height: 100%;
+  width: 0;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  background: gold;
+  transition: 0.3s;
+}
+
+.done:hover span {
+  width: 100%;
+}
+
+/* Result Show-------------------------------------------- */
+
+.result-container {
+  display: flex;
+  justify-content: center;
+}
+
+.result-show {
+  height: 28rem;
+  width: 30rem;
+  padding: 20px;
+  border: 2px orange solid;
+
+  box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.4);
+}
+
+.result-show h1 {
+  text-align: center;
+  color: darkorange;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4), 1px 2px 1px rgba(0, 0, 0, 0.4),
+    1px 3px 1px rgba(0, 0, 0, 0.4);
+}
+
+.result-show h3 {
+  margin-bottom: 0.5rem;
+}
+
+.itinerary1 {
+  margin-top: 1rem;
+}
+
+.itinerary2 {
+  margin-top: 1rem;
+}
+
+.itinerary3 {
+  margin-top: 1rem;
+}
+
+.amount-show {
+  margin-top: 1.5rem;
+}
+
+.amount-show label {
+  font-size: 1.3rem;
+}
+
+.amount-show input {
+  border: none;
+  cursor: none;
+  pointer-events: none;
+  outline: none;
+  font-size: 1.2rem;
+  background:beige;
+}
+
+.result-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+}
+
+.prev-itinerary {
+  padding: 8px 25px;
+  position: relative;
+  z-index: 1;
+  border: 2px solid darkorange;
+  outline: none;
+  background:beige;
+}
+
+.prev-itinerary span {
+  position: absolute;
+  height: 100%;
+  width: 0;
+  right: 0;
+  top: 0;
+  z-index: -1;
+  background: gold;
+  transition: 0.3s;
+}
+
+.prev-itinerary:hover span {
+  width: 100%;
+}
+
+.toPayment {
+  padding: 8px 25px;
+  position: relative;
+  z-index: 1;
+  border: 2px solid darkorange;
+  outline: none;
+  background:beige;
+}
+
+.toPayment span {
+  position: absolute;
+  height: 100%;
+  width: 0;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  background: gold;
+  transition: 0.3s;
+}
+
+.toPayment:hover span {
+  width: 100%;
+}
+
+/* Payment Method----------------------------------------------- */
+
+.payment-container {
+  display: flex;
+  justify-content: center;
+}
+
+.payment-logo img {
+  height: 35px;
+  width: 50px;
+}
+
+.payment-logo {
+  margin-top: 0.5rem;
+}
+
+.payment-method {
+  margin-top: 1rem;
+  height: 31rem;
+  width: 30rem;
+  border: 2px solid orange;
+
+  padding: 20px;
+  box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.4);
+}
+
+.payment-method h1 {
+  text-align: center;
+  color: darkorange;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4), 1px 2px 1px rgba(0, 0, 0, 0.4),
+    1px 3px 1px rgba(0, 0, 0, 0.4);
+}
+
+.payment-design {
+  margin-top: 1.6rem;
+  width: 50%;
+  height: 2rem;
+  font-size: 1.2rem;
+  background:beige;
+}
+
+.payment-design:focus {
+  border: 2px solid orange;
+}
+
+.special {
+  margin-top: 0.5rem;
+}
+
+.label2-design {
+  font-size: 1.3rem;
+}
+
+.expiry-date {
+  margin-top: 1.4rem;
+  background:beige;
+}
+
+.date-design {
+  width: 13%;
+  height: 2rem;
+}
+
+.payment-button {
+  margin-top: 3rem;
+  display: flex;
+  justify-content: space-around;
+}
+
+.result-prev {
+  padding: 8px 25px;
+  position: relative;
+  z-index: 1;
+  border: 2px solid darkorange;
+  outline: none;
+  background:beige;
+}
+
+.result-prev span {
+  position: absolute;
+  height: 100%;
+  width: 0;
+  right: 0;
+  top: 0;
+  z-index: -1;
+  background: gold;
+  transition: 0.3s;
+}
+
+.result-prev:hover span {
+  width: 100%;
+}
+
+.pay-button {
+  padding: 8px 25px;
+  position: relative;
+  z-index: 1;
+  border: 2px solid darkorange;
+  outline: none;
+  background:beige;
+}
+
+.pay-button span {
+  position: absolute;
+  height: 100%;
+  width: 0;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  background: gold;
+  transition: 0.3s;
+}
+
+.pay-button:hover span {
+  width: 100%;
+}
